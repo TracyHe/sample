@@ -1,0 +1,45 @@
+{
+  "id": "/sample",
+  "cmd": null,
+  "cpus": 0.3,
+  "mem": 1000,
+  "disk": 0,
+  "instances": 1,
+  "acceptedResourceRoles": [
+    "slave_public"
+  ],
+  "container": {
+    "type": "DOCKER",
+    "volumes": [],
+    "docker": {
+      "image": "docker4tracy/sample",
+      "network": "BRIDGE",
+      "portMappings": [
+        {
+          "containerPort": 9000,
+          "protocol": "tcp",
+          "labels": {}
+        }
+      ],
+      "privileged": false,
+      "parameters": [
+        {
+          "key": "hostname",
+          "value": "user"
+        },
+        {
+          "key": "network",
+          "value": "microservice"
+        },
+        {
+          "key": "network-alias",
+          "value": "sample"
+        }
+      ],
+      "forcePullImage": true
+    }
+  },
+  "env": {
+    "SPRING_PROFILES_ACTIVE": "docker"
+  }
+}
